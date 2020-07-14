@@ -1,5 +1,6 @@
 import lodash from 'lodash';
 import moment from 'moment';
+import convertDay from '../utils/week-days'
 
 class SessionsService {
 

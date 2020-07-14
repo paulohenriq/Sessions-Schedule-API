@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-const { ObjectId } = Schema;
 const SessionSchema = new Schema(
   {
     professional: String,
     availability: [
       {
-        _id: ObjectId,
-        day: Number,
+        day: String,
         interval_hours: [
           {
             start: String,
@@ -17,7 +15,6 @@ const SessionSchema = new Schema(
         ],
         booked_sessions: [
           {
-            _id: ObjectId,
             customer: String,
             date: Date,
             hour: String,

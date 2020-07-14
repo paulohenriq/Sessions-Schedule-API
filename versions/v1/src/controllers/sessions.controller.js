@@ -1,4 +1,4 @@
-// import SessionsModel from '../../../../server/models/sessions.model';
+import SessionModel from '../../../../server/models/session.model';
 import SessionsService from '../services/sessions.service';
 
 class SessionsController {
@@ -26,10 +26,19 @@ class SessionsController {
   }
 
   async create(ctx) {
-    ctx.status = 200;
-    ctx.body = {
-      status: await SessionsService.action(),
-    };
+    try {
+      const entity = await SessionModel(ctx.request.body); // refactor for data validation
+      const professionalSessions = await entity.save();
+
+      ctx.status = 201;
+      ctx.body = professionalSessions;
+    } catch (err) {
+      ctx.status = ctx.status;
+      ctx.body = {
+        message: err.message,
+        status: ctx.status,
+      }
+    }
   }
 
   async update(ctx) {
@@ -40,10 +49,19 @@ class SessionsController {
   }
 
   async delete(ctx) {
-    ctx.status = 200;
-    ctx.body = {
-      status: await SessionsService.action(),
-    };
+    try {
+      const { id } = ctx.params;
+
+      await SessionModel.findOneAndDelete({ '_id': id });
+
+      ctx.status = 204;
+    } catch (err) {
+      ctx.status = ctx.status;
+      ctx.body = {
+        message: err.message,
+        status: ctx.status,
+      };
+    }
   }
 
   async schedule(ctx) {

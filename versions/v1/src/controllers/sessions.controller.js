@@ -3,7 +3,10 @@ import SessionsService from '../services/sessions.service';
 
 class SessionsController {
   async list(ctx) {
-    const data = await SessionModel.find({});
+    const { professionalCode } = ctx.params;
+    const conditions = !professionalCode ? {} : {_id: professionalCode};
+
+    const data = await SessionModel.find(conditions);
 
     if (data === null || data === undefined) {
       ctx.status = 404;
@@ -33,15 +36,15 @@ class SessionsController {
   async update(ctx) {
     ctx.status = 200;
     ctx.body = {
-      status: await SessionsService.action(),
+      status: {},
     };
   }
 
   async delete(ctx) {
     try {
-      const { id } = ctx.params;
+      const { professionalCode } = ctx.params;
 
-      await SessionModel.findOneAndDelete({ '_id': id });
+      await SessionModel.findOneAndDelete({ '_id': professionalCode });
 
       ctx.status = 204;
     } catch (err) {

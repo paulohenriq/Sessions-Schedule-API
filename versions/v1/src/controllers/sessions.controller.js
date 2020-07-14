@@ -3,26 +3,15 @@ import SessionsService from '../services/sessions.service';
 
 class SessionsController {
   async list(ctx) {
-    const param = [
-      {
-        day: 3,
-        interval_hours: [
-          {
-            start: "8:00",
-            end: "12:00"
-          },
-          {
-            start: "14:00",
-            end: "18:00"
-          }
-        ],
-        booked_sessions: []
-      }
-    ];
-    ctx.status = 200;
-    ctx.body = {
-      body: await SessionsService.mountProfessionalWeekDisponibility(param),
-    };
+    const data = await SessionModel.find({});
+
+    if (data === null || data === undefined) {
+      ctx.status = 404;
+      ctx.body = 'The requested resource was not found or is empty.';
+    }
+    const sessions = await SessionsService.generateListSessionsAllProfessionals(data);
+    ctx.status = 201;
+    ctx.body = sessions;
   }
 
   async create(ctx) {

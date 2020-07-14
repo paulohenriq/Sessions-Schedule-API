@@ -16,7 +16,7 @@ const SessionSchema = new Schema(
         booked_sessions: [
           {
             customer: String,
-            date: Date,
+            date: String,
             hour: String,
           },
         ],

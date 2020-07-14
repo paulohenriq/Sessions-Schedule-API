@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import moment from 'moment';
 import convertDay from '../utils/week-days'
 
@@ -33,7 +34,7 @@ class SessionsService {
         available_slots = [].concat(...available_slots);
 
         // Mount week slots available to professional
-        week_book.push({day: convertDay(parseInt(professional_availability[i].day)), hours: available_slots});
+        week_book.push({code: professional_availability[i]._id ,day: convertDay(parseInt(professional_availability[i].day)), hours: available_slots});
       }
     }
     return week_book;
@@ -53,7 +54,7 @@ class SessionsService {
 
     while (start < end) {
       slots.push(start.toLocaleTimeString('pt-BR', {
-        hour: 'numeric',
+        hour: '2-digit',
         minute: 'numeric',
         hour12: false
       }));
@@ -104,13 +105,60 @@ class SessionsService {
       returned_data.push({
         professional: {
           name: professional.professional,
-          // eslint-disable-next-line no-underscore-dangle
           code: professional._id
         },
         availability: this.mountProfessionalWeekDisponibility(professional.availability)
       });
     });
     return returned_data;
+  }
+
+  /**
+   * @module services/sessions
+   * @method [services/sessions] verifySlotAvailability()
+   * @description this method generates the list of sessions available to all stored professionals.
+   * @param  {Array} all_professionals
+   * @returns {Array}
+   */
+  async verifySlotAvailability(professional_infos, day, hour) {
+    const professional_availability = this.mountProfessionalWeekDisponibility(professional_infos.availability);
+    let codeAvailability = null;
+
+    // eslint-disable-next-line consistent-return
+    professional_availability.forEach( session => {
+      if (session.day.toLowerCase() === day.toLowerCase()) {
+        if (session.hours.indexOf(hour) > -1) codeAvailability = session.code;
+      }
+    });
+    return codeAvailability;
+  }
+
+  /**
+   * @module services/sessions
+   * @method [services/sessions] getDateByDay()
+   * @description this method generates the list of sessions available to all stored professionals.
+   * @param  {Array} all_professionals
+   * @returns {Array}
+   */
+  async getDateByDay(day) {
+    const number_of_day = convertDay(day);
+    let date_day = null;
+    if (number_of_day > (new Date()).getDay()){
+      const session_date = new Date() ;
+      session_date.toLocaleTimeString('pt-BR', {
+        hour: '2-digit',
+        minute: 'numeric',
+        month: '2-digit',
+        hour12: false
+      });
+      session_date.setHours(0,0,0,0);
+
+      const beforeDays = number_of_day - session_date.getDay();
+      session_date.setDate(session_date.getDate() + beforeDays);
+      date_day = moment(session_date).format('YYYY-MM-DD');
+    }
+
+    return date_day;
   }
 
 }

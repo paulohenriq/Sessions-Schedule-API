@@ -1,0 +1,27 @@
+{
+  "DEFAULT": {
+    "status": 500,
+    "body": {
+      "message": "Request error"
+    }
+  },
+  "ERROR:SOMETHING_WRONG": {
+    "status": 400,
+    "body": {
+      "message": "Something went wrong when managing the session."
+    }
+  },
+  "ERROR:NOT_FOUND": {
+    "status": 404,
+    "body": {
+      "code": 17,
+      "message": "Session or schedule not found."
+    }
+  },
+  "ERROR:INTERNAL_ERROR": {
+    "status": 500,
+    "body": {
+      "message": "Problem processing request."
+    }
+  }
+}

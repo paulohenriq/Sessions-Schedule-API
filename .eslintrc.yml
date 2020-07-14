@@ -1,0 +1,34 @@
+root: true
+parser: babel-eslint
+plugins:
+  - jest
+  - prettier
+env:
+  es6: true
+  node: true
+  jest/globals: true
+extends:
+  - plugin:json/recommended
+  - airbnb-base
+  - prettier
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+  allowImportExportEverywhere: true
+rules:
+  prettier/prettier: 'error'
+  class-methods-use-this: 'off'
+  camelcase: 'off'
+  no-self-assign: 'off'
+  no-plusplus: 'off'
+  radix: 'off'
+  global-require: 'off'
+globals:
+  it: true
+  describe: true
+  expect: true
+  sinon: true
+  before: true
+  beforeEach: true
+  after: true
+  afterEach: true

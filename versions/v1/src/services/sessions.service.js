@@ -86,7 +86,12 @@ class SessionsService {
         if (index_of_slot < available_slots.length - 1) {
           blocked_slots = 2;
         }
+
+        // Remove specific slot and next slot
         available_slots.splice(index_of_slot, blocked_slots);
+
+        // Remove previous slot, if not the first slot
+        if(index_of_slot > 0) available_slots.splice(index_of_slot - 1, 1);
       }
     });
     return available_slots;
@@ -116,9 +121,9 @@ class SessionsService {
   /**
    * @module services/sessions
    * @method [services/sessions] verifySlotAvailability()
-   * @description this method generates the list of sessions available to all stored professionals.
-   * @param  {Array} all_professionals
-   * @returns {Array}
+   * @description this method returns if the specified day and time is available on the professional's calendar.
+   * @param  {Object} professional_infos, {String} day, {String} hour
+   * @returns {String}
    */
   async verifySlotAvailability(professional_infos, day, hour) {
     const professional_availability = this.mountProfessionalWeekDisponibility(professional_infos.availability);
@@ -136,9 +141,9 @@ class SessionsService {
   /**
    * @module services/sessions
    * @method [services/sessions] getDateByDay()
-   * @description this method generates the list of sessions available to all stored professionals.
-   * @param  {Array} all_professionals
-   * @returns {Array}
+   * @description this method gets the date for the desired day of the week in the schedule.
+   * @param  {String} day
+   * @returns {String}
    */
   async getDateByDay(day) {
     const number_of_day = convertDay(day);

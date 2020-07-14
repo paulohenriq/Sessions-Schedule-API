@@ -16,7 +16,7 @@ parserOptions:
   sourceType: module
   allowImportExportEverywhere: true
 rules:
-  prettier/prettier: 'error'
+  prettier/prettier: 'off'
   class-methods-use-this: 'off'
   camelcase: 'off'
   no-self-assign: 'off'

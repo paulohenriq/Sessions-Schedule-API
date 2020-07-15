@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf dist",
-    "build": "npm run clean &&  echo 'fail clean' && NODE_ENV=${NODE_ENV:-staging} babel server -d dist/server -D -s && echo 'fail build server' && NODE_ENV=${NODE_ENV:-staging} babel configs -d dist/configs -D -s && echo 'fail build config' && NODE_ENV=${NODE_ENV:-staging} babel versions -d dist/versions -D -s",
-    "start": "NODE_ENV=${NODE_ENV:-staging} npm run build && echo 'foi o build' && NODE_ENV=${NODE_ENV:-staging} node dist/server/index.js",
-    "start:dist": "NODE_ENV=${NODE_ENV:-staging} npm run build && echo 'foi o build' && NODE_ENV=${NODE_ENV:-staging} node dist/server/index.js",
+    "build": "npm run clean && NODE_ENV=${NODE_ENV:-staging} babel server -d dist/server -D -s && NODE_ENV=${NODE_ENV:-staging} babel configs -d dist/configs -D -s && NODE_ENV=${NODE_ENV:-staging} babel versions -d dist/versions -D -s",
+    "start": "npm run start:dist",
+    "start:dist": "NODE_ENV=${NODE_ENV:-staging} npm run build && NODE_ENV=${NODE_ENV:-staging} node dist/server/index.js",
     "dev": "cross-env NODE_ENV=development nodemon server/index.js",
     "prod": "cross-env NODE_ENV=staging server/index.js",
     "debug": "cross-env NODE_ENV=development nodemon --inspect server/index.js",

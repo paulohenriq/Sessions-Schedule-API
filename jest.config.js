@@ -8,7 +8,6 @@ module.exports = {
   collectCoverage: true,
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    '<rootDir>/versions/v1/src/controllers/**.js',
     '<rootDir>/versions/v1/src/services/**.js',
     '<rootDir>/versions/v1/src/utils/**.js',
     '!<rootDir>/dist/**',

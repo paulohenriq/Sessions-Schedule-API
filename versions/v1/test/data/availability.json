@@ -1,0 +1,43 @@
+[
+  {
+      "_id": "5f0e47df7875880011e2d340",
+      "day": "Wednesday",
+      "interval_hours": [
+          {
+              "_id": "5f0e47df7875880011e2d341",
+              "start": "8:00",
+              "end": "12:00"
+          }
+      ],
+      "booked_sessions": []
+  },
+  {
+      "_id": "5f0e47df7875880011e2d342",
+      "day": "Thursday",
+      "interval_hours": [
+          {
+              "_id": "5f0e47df7875880011e2d343",
+              "start": "8:00",
+              "end": "12:00"
+          },
+          {
+              "_id": "5f0e47df7875880011e2d344",
+              "start": "14:00",
+              "end": "18:00"
+          }
+      ],
+      "booked_sessions": []
+  },
+  {
+      "_id": "5f0e47df7875880011e2d345",
+      "day": "Friday",
+      "interval_hours": [
+          {
+              "_id": "5f0e47df7875880011e2d346",
+              "start": "8:00",
+              "end": "12:00"
+          }
+      ],
+      "booked_sessions": []
+  }
+]

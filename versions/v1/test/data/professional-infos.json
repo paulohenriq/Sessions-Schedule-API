@@ -1,0 +1,50 @@
+{
+  "_id": "5f0e9466fde750001126fdf1",
+  "professional": "Henrique",
+  "availability": [
+      {
+          "_id": "5f0e9466fde750001126fdf2",
+          "day": "Wednesday",
+          "interval_hours": [
+              {
+                  "_id": "5f0e9466fde750001126fdf3",
+                  "start": "8:00",
+                  "end": "12:00"
+              }
+          ],
+          "booked_sessions": []
+      },
+      {
+          "_id": "5f0e9466fde750001126fdf4",
+          "day": "Thursday",
+          "interval_hours": [
+              {
+                  "_id": "5f0e9466fde750001126fdf5",
+                  "start": "8:00",
+                  "end": "12:00"
+              },
+              {
+                  "_id": "5f0e9466fde750001126fdf6",
+                  "start": "14:00",
+                  "end": "18:00"
+              }
+          ],
+          "booked_sessions": []
+      },
+      {
+          "_id": "5f0e9466fde750001126fdf7",
+          "day": "Friday",
+          "interval_hours": [
+              {
+                  "_id": "5f0e9466fde750001126fdf8",
+                  "start": "8:00",
+                  "end": "12:00"
+              }
+          ],
+          "booked_sessions": []
+      }
+  ],
+  "created": "2020-07-15T05:30:14.829Z",
+  "updated": "2020-07-15T05:30:14.829Z",
+  "__v": 0
+}

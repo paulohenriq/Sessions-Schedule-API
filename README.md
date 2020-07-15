@@ -149,6 +149,8 @@ $ npm run test:ci
  - [ ] :cold_sweat: Endpoint to update availability information.
  - [ ] Validation of data before persisting on mongodb.
  - [ ] Allow exclusion of availability by slot or day of the week.
+ - [ ] Increase test cases to minimize the number of bugs not discovered.
+ - [ ] Implement integration tests to validate each enpoint for API.
  - [ ] Implement soft delete function to avoid permanently deleting from mongodb.
  - [ ] Implement seeds for popular database when starting the project for the first time.
 

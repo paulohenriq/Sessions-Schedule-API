@@ -1,3 +1,4 @@
+
 # Sessions Schedule API
 
 ## :page_with_curl: Summary
@@ -15,7 +16,6 @@ The objective of the project is to provide an API so that professionals can prov
 
 | 8:00am | 8:30am | 9:00am | 9:30am | 10:00am
 |--|--|--|--|--|
-|  |  |
 
 -   When a customer books a session we need to block slots in order to not have conflicts with other customers trying to book sessions at the same time. Looking at the example above if a client books a session starting 8:30am, professional will not be available at 8:30am and 9:00am since every session has a 1 hour duration.
 
@@ -60,3 +60,44 @@ $ docker-compose up -d
   "health": true
 }
 ```
+### :computer: Using your computer
+
+### :wave: Prerequisites
+
+> [Node.js](http://nodejs.org/)
+
+> [NPM](https://www.npmjs.com/)
+
+> [Mongodb](https://docs.mongodb.com/manual/administration/install-community/)
+
+### :rocket: Installing
+
+ - Clone the project:
+```sh
+$ git clone git@github.com:paulohenriq/Sessions-Schedule-API.git
+```
+
+ - Access the project folder
+ ```sh
+$ cd Sessions-Schedule-API
+```
+
+ >:warning: change the mongodb access information using the environment variables available in `/configs` :file_folder:
+
+- Install all packages using NPM:
+```sh
+$ npm install
+```
+
+- To execute in Development environment:
+```sh
+$ npm run dev
+```
+
+- To execute in Production environment:
+```sh
+$ npm start:dist
+```
+
+### :information_source: Recommendations
+> [VS Code](https://code.visualstudio.com/)

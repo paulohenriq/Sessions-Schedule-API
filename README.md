@@ -113,5 +113,38 @@ The API has the following endpoints:
 
 > You can use the following postman collection to make using the API easier [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a53087582a6059450ab7)
 
-### :information_source: Recommendations
-> [VS Code](https://code.visualstudio.com/)
+## :gear: Running the tests
+
+- To run the project code tests with only relevant information in the terminal, use the command:
+```sh
+$ npm run test
+```
+
+- To run the project code tests with complete information on the terminal, use the command:
+```sh
+$ npm run test:verbose
+```
+
+- To run unit tests only, use the command:
+```sh
+$ npm run test:unit
+```
+
+- To run the project code tests and view coverage information, use the command:
+```sh
+$ npm run test:ci
+```
+## :warning: Approaches taked that are not outlined in requirements
+
+- Registration of availability and session schedules are carried out only for the current week.
+- It is only possible to schedule a session for the day after the current one. For example, if today is Tuesday it is only possible to make appointments from Wednesday to Saturday of the current week.
+
+## :battery: Future improvements and features
+
+ - [ ] :cold_sweat: Endpoint to update availability information.
+ - [ ] Validation of data before persisting on mongodb.
+ - [ ] Allow exclusion of availability by slot or day of the week.
+ - [ ] Implement soft delete function to avoid permanently deleting from mongodb.
+ - [ ] Implement seeds for popular database when starting the project for the first time.
+
+- And more, with more time :raised_hands:

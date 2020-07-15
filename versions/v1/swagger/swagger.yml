@@ -1,0 +1,31 @@
+openapi: 3.0.0
+info:
+  title: Sessions Schedule API
+  version: '1.0'
+  description: This project is an application challenge for professionals to manage their session schedules, providing time slots for clients to schedule appointments.
+  license:
+    name: MIT
+servers:
+  - url: 'http://127.0.0.1:3000'
+    description: development
+  - url: 'http://scheduleapi-xyz.umbler.net'
+    description: staging
+paths:
+  /health:
+    get:
+      summary: Informations about API Health
+      operationId: get-v1-health
+      description: Returns informations about API Health
+      tags:
+        - Integrity
+      responses:
+        '200':
+          description: Informations about API Health.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  health:
+                    type: boolean
+    parameters: []

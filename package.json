@@ -15,7 +15,6 @@
     "test:verbose": "cross-env NODE_ENV=test jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
     "test:integration": "npm test -- --watch -c jest-integration-config.js",
-    "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "lint": "eslint ./versions/v*/src/**/*.js ./server/**/*.js ./configs/*.js",
     "lint:fix": "npm run lint -- --fix",

@@ -99,5 +99,19 @@ $ npm run dev
 $ npm start:dist
 ```
 
+## :robot: API and Endpoints
+
+The API has the following endpoints:
+
+- `[POST] /v1/sessions`: Endpoint to create professional availability.
+- `[GET] /v1/sessions`: Endpoint to obtain the availability of all professionals in the current week.
+- `[GET] /v1/sessions/:professionalCode`: Endpoint to obtain the availability in the current week of the professional informed by parameter.
+- `[DELETE] /v1/sessions/:professionalCode`: Endpoint to delete the professional's schedules.
+- `[POST] /v1/sessions/schedule`: Endpoint for scheduling a session from a customer to a professional.
+
+> For details on the endpoints access the Swagger file :page_facing_up:[available here](https://github.com/paulohenriq/Sessions-Schedule-API/blob/master/versions/v1/swagger/swagger.yml).
+
+> You can use the following postman collection to make using the API easier [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a53087582a6059450ab7)
+
 ### :information_source: Recommendations
 > [VS Code](https://code.visualstudio.com/)

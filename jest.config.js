@@ -10,6 +10,8 @@ module.exports = {
   collectCoverageFrom: [
     '<rootDir>/versions/v1/src/controllers/**.js',
     '<rootDir>/versions/v1/src/services/**.js',
+    '<rootDir>/versions/v1/src/utils/**.js',
+    '!<rootDir>/dist/**',
     '!<rootDir>/versions/v1/config.js',
     '!<rootDir>/versions/v1/routes.js',
     '!<rootDir>/versions/v1/swagger/**',
@@ -19,6 +21,11 @@ module.exports = {
   coverageDirectory: '<rootDir>/versions/v1/test/coverage',
   // The test environment that will be used for testing
   testEnvironment: 'node',
+
+  testMatch: [
+    '<rootDir>/versions/v1/**/*.spec.js',
+    '<rootDir>/versions/v1/**/*.test.js'
+  ],
 
   testTimeout: 60000, // Increased minimum timeout
 };

@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist",
     "build": "npm run clean &&  echo 'fail clean' && NODE_ENV=${NODE_ENV:-staging} babel server -d dist/server -D -s && echo 'fail build server' && NODE_ENV=${NODE_ENV:-staging} babel configs -d dist/configs -D -s && echo 'fail build config' && NODE_ENV=${NODE_ENV:-staging} babel versions -d dist/versions -D -s",
-    "start": "npm run dev",
+    "start": "NODE_ENV=${NODE_ENV:-staging} npm run build && echo 'foi o build' && NODE_ENV=${NODE_ENV:-staging} node dist/server/index.js",
     "start:dist": "NODE_ENV=${NODE_ENV:-staging} npm run build && echo 'foi o build' && NODE_ENV=${NODE_ENV:-staging} node dist/server/index.js",
     "dev": "cross-env NODE_ENV=development nodemon server/index.js",
     "prod": "cross-env NODE_ENV=staging server/index.js",

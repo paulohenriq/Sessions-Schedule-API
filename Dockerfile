@@ -1,5 +1,5 @@
-FROM node:12.16.1
+FROM node:current-alpine
 WORKDIR /app
 COPY . /app
 CMD ["npm", "run" , "start:dist"]
-EXPOSE 80
+EXPOSE 3000

@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+  mongo-sessions-schedule:
+    image: mongo
+    container_name: mongo-sessions-schedule
+    volumes:
+      - data:/data/db
+    networks:
+      - internal
+    ports:
+      - '27017:27017'
+
+  sessions-schedule-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sessions-schedule-api
+    env_file: docker-compose.env
+    container_name: sessions-schedule-api
+    depends_on:
+      - nats
+      - mongo-sessions-schedule
+    networks:
+      - internal
+    ports:
+      - '3000:3000'
+
+  nats:
+    image: nats:2
+    networks:
+      - internal
+
+networks:
+  internal:
+
+volumes:
+  data:

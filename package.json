@@ -18,7 +18,8 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage",
     "lint": "eslint ./versions/v*/src/**/*.js ./server/**/*.js ./configs/*.js",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "postinstall": "npm run start:dist"
   },
   "keywords": [],
   "author": "paulohenriq",

@@ -130,6 +130,11 @@ $ npm run test:verbose
 $ npm run test:unit
 ```
 
+- To run integration tests only, use the command:
+```sh
+$ npm run test:integration
+```
+
 - To run the project code tests and view coverage information, use the command:
 ```sh
 $ npm run test:ci

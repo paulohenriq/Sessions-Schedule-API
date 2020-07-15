@@ -29,3 +29,156 @@ paths:
                   health:
                     type: boolean
     parameters: []
+  /v1/sessions:
+    get:
+      summary: Endpoint to obtain the availability of all professionals in the current week.
+      operationId: get-v1-sessions
+      tags:
+        - Sessions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionGet'
+    post:
+      summary: Endpoint to create professional availability.
+      operationId: post-v1-sessions
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SessionPost'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionPost'
+
+  /v1/sessions/{professionalCode}:
+    get:
+      summary: Endpoint to obtain the availability in the current week of the professional informed by parameter.
+      operationId: get-v1-sessions-professional
+      tags:
+        - Sessions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SessionGet'
+    delete:
+      summary: Endpoint to delete the professional's schedules.
+      operationId: delete-v1-sessions-professional
+      tags:
+        - Sessions
+      responses:
+        '204':
+          description: OK
+    parameters:
+      - in: path
+        name: professionalCode
+        required: true
+        schema:
+          type: string
+          minimum: 1
+        description: The professional ID
+  /v1/sessions/schedule:
+    post:
+      summary: Endpoint for scheduling a session from a customer to a professional.
+      operationId: post-v1-sessions-schedule
+      tags:
+        - Sessions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Schedule'
+      responses:
+        '200':
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: ERROR
+          content:
+            text/plain:
+              schema:
+                type: string
+
+components:
+  schemas:
+    SessionGet:
+      title: Professionals Availability Get
+      type: array
+      items:
+        type: object
+        properties:
+          professional:
+            type: object
+            properties:
+              name:
+                type: string
+              code:
+                type: string
+          availability:
+            type: array
+            items:
+              type: object
+              properties:
+                code:
+                  type: string
+                day:
+                  type: string
+                hours:
+                  type: array
+                  items:
+                    type: string
+    SessionPost:
+      title: Professionals Availability Create
+      type: object
+      properties:
+        professional:
+          type: string
+        availability:
+          type: array
+          items:
+            type: object
+            properties:
+              day:
+                type: string
+              interval_hours:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    start:
+                      type: string
+                    end:
+                      type: string
+              booked_sessions:
+                type: array
+                items:
+                  type: object
+    Schedule:
+      title: Customer schedule to professional
+      type: object
+      properties:
+        professionalCode:
+          type: string
+        day:
+          type: string
+        hour:
+          type: string
+        customer:
+          type: string

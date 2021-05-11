@@ -40,7 +40,7 @@
     "koa-json-error": "^3.1.2",
     "koa-oas3": "^0.18.0",
     "load-json-file": "^6.2.0",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "log4js": "^6.1.2",
     "moment": "^2.27.0",
     "mongodb-memory-server": "^6.4.1",

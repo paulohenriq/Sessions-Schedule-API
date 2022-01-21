@@ -41,7 +41,7 @@
     "koa-oas3": "^0.18.0",
     "load-json-file": "^6.2.0",
     "lodash": "^4.17.19",
-    "log4js": "^6.1.2",
+    "log4js": "^6.4.0",
     "moment": "^2.27.0",
     "mongodb-memory-server": "^6.4.1",
     "mongoose": "^5.9.5",
